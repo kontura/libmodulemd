@@ -28,6 +28,7 @@
 #include "private/modulemd-compression-private.h"
 #include "private/modulemd-util.h"
 
+// test
 
 ModulemdCompressionTypeEnum
 modulemd_detect_compression (const gchar *filename, int fd, GError **error)
