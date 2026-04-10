@@ -70,15 +70,17 @@ createrepo_c $arch
 $RETRY_CMD dnf -y install --nogpgcheck \
                --allowerasing \
                --repofrompath libmodulemd-ci,$arch \
-               $arch/python3-libmodulemd*.rpm \
-               $arch/libmodulemd-devel*.rpm
+               --repo libmodulemd-ci \
+               python3-libmodulemd \
+               libmodulemd-devel
 
 # Also install the python2-libmodulemd if it was built for this release
 # the ||: at the end instructs bash to consider this a pass either way.
 dnf -y install --nogpgcheck \
                --allowerasing \
                --repofrompath libmodulemd-ci,$arch \
-               $arch/python2-libmodulemd*.rpm ||:
+               --repo libmodulemd-ci \
+               python2-libmodulemd ||:
 popd #build_rpm
 
 meson --buildtype=release \
