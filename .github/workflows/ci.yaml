@@ -102,8 +102,9 @@ jobs:
           dnf -y install --nogpgcheck
                          --allowerasing
                          --repofrompath libmodulemd-ci,x86_64
-                         x86_64/python3-libmodulemd*.rpm
-                         x86_64/libmodulemd-devel*.rpm
+                         --repo libmodulemd-ci
+                         python3-libmodulemd
+                         libmodulemd-devel
 
       - name: Set up the build directory
         run:
@@ -207,8 +208,9 @@ jobs:
           dnf -y install --nogpgcheck
                          --allowerasing
                          --repofrompath libmodulemd-ci,x86_64
-                         x86_64/python3-libmodulemd*.rpm
-                         x86_64/libmodulemd-devel*.rpm
+                         --repo libmodulemd-ci
+                         python3-libmodulemd
+                         libmodulemd-devel
 
       - name: Set up the build directory
         run:
